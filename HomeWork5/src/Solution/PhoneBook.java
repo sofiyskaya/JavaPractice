@@ -1,24 +1,18 @@
 package Solution;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 public class PhoneBook {
 
     // заполнение телефонной книги
     public static HashMap<String, List<Integer>> PhoneFill(String[]phoneNum){
         HashMap<String,List<Integer>> outMap = new HashMap<>();
-
-        outMap.put("Ivanov", new ArrayList<Integer>(Arrays.asList(12345)));
-        outMap.put("Ivanov", new ArrayList<Integer>(Arrays.asList(987656)));
-        outMap.put("Petrov", new ArrayList<Integer>(Arrays.asList(12345)));
-        outMap.put("Sidorov", new ArrayList<Integer>(Arrays.asList(77777)));
-        // outMap.putIfAbsent("Ivanov", 1234567);
 
         // проходим по полученным данным
         for(String name: phoneNum){
@@ -57,5 +51,15 @@ public class PhoneBook {
         }
          
     }
-    
+    // метод ввода данных через Scanner
+    public static String[] inputPhone(int size) {
+        Scanner iScanner = new Scanner(System.in);
+        String[] result = new String[size];
+        for (int i = 0; i < result.length; i++) {
+            System.out.println("Enter the contact №" + (i + 1));
+            result[i] = iScanner.nextLine();
+        }
+        iScanner.close();
+        return result;
+    }
 }
